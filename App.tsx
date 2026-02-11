@@ -25,6 +25,9 @@ const App: React.FC = () => {
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session);
       setLoading(false);
+    }).catch((error) => {
+      console.error('Failed to get session:', error);
+      setLoading(false);
     });
 
     const {
